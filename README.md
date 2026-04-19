@@ -1,2 +1,3 @@
-# joekavanagh-fundamentals
-Foundation repo for stack fundamentals
+# Joe Kavanagh - Fundamentals
+
+Single-purpose demos of each technology in the Online Lending stack.
