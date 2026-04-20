@@ -77,3 +77,13 @@ Each folder has its own README explaining what it demonstrates.
 - Over-engineering a demo folder beyond what it needs to prove
 - Installing heavy dependencies for simple problems
 - Writing code for me when I should be practicing writing it myself
+
+## Tooling decisions for this repo
+
+- No `package.json`, `prettier`, or `eslint` configs in vanilla HTML/JS
+  folders (01, 04). These demos have zero dependencies and tooling
+  would be noise.
+- Introduce tooling where it earns its place: TypeScript config in 02,
+  package.json starting at 05-express-api, etc.
+- `.gitignore` at the repo root covers all subfolders.
+- Don't suggest adding tooling to folders that don't need it.
