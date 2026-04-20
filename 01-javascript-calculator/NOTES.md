@@ -138,7 +138,7 @@ with how I'd write text into any other element.
   that is interest.
 - If someone types nonsense into a field, parseFloat gives back NaN
   and the result just says "$NaN". I should catch that and show a
-  friendly message instead.
+  friendly message instead. **Fixed.**
 - Nothing stops someone entering a 500% interest rate or 200 years.
   The math still runs but the answer is meaningless. Sensible max
   values would help.

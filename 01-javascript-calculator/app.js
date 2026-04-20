@@ -73,7 +73,12 @@ function setupForm({ formId, resultId, storageKey, calculate, resultLabel }) {
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    const result = calculate(readForm(form));
+    const values = readForm(form);
+    if (Object.values(values).some(Number.isNaN)) {
+      output.textContent = "Please enter valid numbers";
+      return;
+    }
+    const result = calculate(values);
     output.textContent = `${resultLabel}: ${currency.format(result)}`;
   });
 
