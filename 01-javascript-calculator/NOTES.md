@@ -144,7 +144,7 @@ with how I'd write text into any other element.
   values would help.
 - localStorage can throw if it's disabled (private browsing in some
   browsers). I didn't wrap the calls in try/catch, so that would
-  break the page.
+  break the page. **Fixed.**
 
 ## For later
 

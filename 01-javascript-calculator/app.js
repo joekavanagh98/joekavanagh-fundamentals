@@ -3,6 +3,26 @@ const currency = new Intl.NumberFormat("en-US", {
   currency: "USD",
 });
 
+const storage = {
+  read(key) {
+    try {
+      return localStorage.getItem(key);
+    } catch {
+      return null;
+    }
+  },
+  write(key, value) {
+    try {
+      localStorage.setItem(key, value);
+    } catch {}
+  },
+  remove(key) {
+    try {
+      localStorage.removeItem(key);
+    } catch {}
+  },
+};
+
 function compoundInterest({ principal, rate, years, frequency }) {
   const r = rate / 100;
   return principal * Math.pow(1 + r / frequency, frequency * years);
@@ -33,7 +53,7 @@ function setupForm({ formId, resultId, storageKey, calculate, resultLabel }) {
   const form = document.getElementById(formId);
   const output = document.getElementById(resultId);
 
-  const saved = localStorage.getItem(storageKey);
+  const saved = storage.read(storageKey);
   if (saved) {
     try {
       const values = JSON.parse(saved);
@@ -42,13 +62,13 @@ function setupForm({ formId, resultId, storageKey, calculate, resultLabel }) {
         if (field) field.value = value;
       }
     } catch {
-      localStorage.removeItem(storageKey);
+      storage.remove(storageKey);
     }
   }
 
   form.addEventListener("input", () => {
     const values = Object.fromEntries(new FormData(form));
-    localStorage.setItem(storageKey, JSON.stringify(values));
+    storage.write(storageKey, JSON.stringify(values));
   });
 
   form.addEventListener("submit", (event) => {
@@ -59,7 +79,7 @@ function setupForm({ formId, resultId, storageKey, calculate, resultLabel }) {
 
   form.addEventListener("reset", () => {
     output.textContent = "";
-    localStorage.removeItem(storageKey);
+    storage.remove(storageKey);
   });
 }
 
