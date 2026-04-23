@@ -1,2 +1,4 @@
-// Re-exports for the three utilities go here as they're added.
-export {};
+export {
+  creditScoreCategory,
+  type CreditScoreCategory,
+} from "./creditScoreCategory.js";
