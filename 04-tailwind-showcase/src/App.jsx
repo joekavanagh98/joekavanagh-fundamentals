@@ -1,5 +1,6 @@
 import ButtonShowcase from "./components/ButtonShowcase.jsx";
 import CardShowcase from "./components/CardShowcase.jsx";
+import FormShowcase from "./components/FormShowcase.jsx";
 
 export default function App() {
   return (
@@ -7,6 +8,7 @@ export default function App() {
       <h1 className="text-3xl font-semibold">Tailwind Showcase</h1>
       <ButtonShowcase />
       <CardShowcase />
+      <FormShowcase />
     </main>
   );
 }
